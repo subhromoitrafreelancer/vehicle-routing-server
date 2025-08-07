@@ -1,0 +1,64 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./routing_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+  web:
+    resources:
+      static-locations: classpath:/static/
+
+# External API configurations
+google:
+  maps:
+    api:
+      key: ${GOOGLE_MAPS_API_KEY:your_google_maps_api_key}
+
+crm:
+  api:
+    url: ${CRM_API_URL:http://localhost:8081/api}
+    key: ${CRM_API_KEY:your_crm_api_key}
+
+# Application settings
+routing:
+  depot:
+    latitude: 40.7128
+    longitude: -74.0060
+  working-hours:
+    start: "08:00"
+    end: "18:00"
+    max-overtime-minutes: 120
+  optimization:
+    solver-time-limit-minutes: 10
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.exteriorclean.routing: INFO
+    org.optaplanner: WARN
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

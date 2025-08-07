@@ -1,4 +1,7 @@
 package com.anansu.powerwashrouting.model;
-
-public class RouteStatus {
+public enum RouteStatus {
+    PLANNED,
+    IN_PROGRESS,
+    COMPLETED,
+    CANCELLED
 }

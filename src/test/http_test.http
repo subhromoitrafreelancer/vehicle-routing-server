@@ -1,0 +1,9 @@
+GET http://localhost:8080/api/routing/routes?date=2024-12-21
+Accept: application/json
+###
+POST http://localhost:8080/api/routing/generate-routes?date=2024-12-21
+Accept: application/json
+Content-Type: application/json
+
+{}
+
